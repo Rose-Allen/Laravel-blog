@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Добавление Категории</h1>
+                    <h1 class="m-0">Редактирование Категории</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -26,15 +26,16 @@
             <!-- Small boxes (Stat box) -->
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{route('admin.category.store')}}" method="post" class="w-25">
+                    <form action="{{route('admin.category.update', $category->id)}}" method="post" class="w-25">
                         @csrf
+                        @method('patch')
                        <div class="form-group">
-                           <input type="text" name="title" class="form-control" placeholder="Название Категории">
+                           <input type="text" name="title" class="form-control" placeholder="Название Категории" value="{{$category->title}}">
                             @error('title')
                                 <div class="text-danger">Необходимо заполнить поле!</div>
                            @enderror
                        </div>
-                            <input type="submit" class="btn btn-success" value="Добавить">
+                            <input type="submit" class="btn btn-primary" value="Обновить">
                     </form>
                 </div>
             </div>
