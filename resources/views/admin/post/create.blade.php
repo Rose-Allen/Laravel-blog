@@ -30,14 +30,14 @@
                             @csrf
                             <div class="form-group w-25">
                                 <input type="text" name="title" class="form-control" placeholder="Название поста"
-                                    value="{{old('title')}}"
+                                       value="{{old('title')}}"
                                 >
                                 @error('title')
                                 <div class="text-danger">Необходимо заполнить поле!</div>
                                 @enderror
                             </div>
                             <div class="form-group">
-                                    <textarea id="summernote" name="content">{{old('content')}}</textarea>
+                                <textarea id="summernote" name="content">{{old('content')}}</textarea>
                                 @error('content')
                                 <div class="text-danger">Необходимо заполнить поле!</div>
                                 @enderror
@@ -46,8 +46,8 @@
                                 <label for="exampleInputFile">Добавить превью</label>
                                 <div class="input-group">
                                     <div class="custom-file">
-                                        <input type="file" class="custom-file-input" name="preview_image" >
-                                        <label class="custom-file-label" >Выберите изображение</label>
+                                        <input type="file" class="custom-file-input" name="preview_image">
+                                        <label class="custom-file-label">Выберите изображение</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Загрузка</span>
@@ -76,9 +76,18 @@
                                 <label>Выбрать категорию</label>
                                 <select class="form-control" name="category_id">
                                     @foreach($categories as $category)
-                                    <option value="{{$category->id}}"
-                                        {{$category->id == old('category_id') ? 'selected' : '' }}
-                                    >{{$category->title}}</option>
+                                        <option value="{{$category->id}}"
+                                            {{$category->id == old('category_id') ? 'selected' : '' }}
+                                        >{{$category->title}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Выбрать Теги</label>
+                                <select class="select2" name="tag_ids[]" multiple="multiple" data-placeholder="Выбрать теги"
+                                        style="width: 100%;">
+                                    @foreach($tags as $tag)
+                                        <option {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? 'selected' : ''}} value="{{$tag->id}}">{{$tag->title}}</option>
                                     @endforeach
                                 </select>
                             </div>
