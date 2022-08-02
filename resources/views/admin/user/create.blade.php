@@ -40,12 +40,12 @@
                             <div class="text-danger">{{$message}}</div>
                             @enderror
                         </div>
-                        <div class="form-group">
-                            <input type="text" name="password" class="form-control" placeholder="Пароль">
-                            @error('password')
-                            <div class="text-danger">{{$message}}</div>
-                            @enderror
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <input type="text" name="password" class="form-control" placeholder="Пароль">--}}
+{{--                            @error('password')--}}
+{{--                            <div class="text-danger">{{$message}}</div>--}}
+{{--                            @enderror--}}
+{{--                        </div>--}}
                         <div class="form-group w-50">
                             <label>Выбрать Роль</label>
                             <select class="form-control" name="role">
