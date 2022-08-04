@@ -23,7 +23,7 @@ Route::group(['namespace'=> 'Main'], function (){
 //Admin
 Route::group(['namespace'=>'Admin', 'prefix'=>'admin', 'middleware'=>['auth','admin','verified']], function (){
     Route::group(['namespace'=> 'Main'], function (){
-        Route::get('/', "IndexController");
+        Route::get('/', "IndexController")->name('admin.main.index');
     });
 
     Route::group(['namespace'=> 'Post', 'prefix'=>'posts'], function (){
