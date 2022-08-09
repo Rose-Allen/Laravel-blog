@@ -32,7 +32,7 @@
                 </div>
             </div>
             <div class="row mt-3">
-               <div class="col-md-4">
+               <div class="col-md-5">
                    <div class="card">
                        <div class="card-body table-responsive p-0">
                            <table class="table table-hover text-nowrap">
