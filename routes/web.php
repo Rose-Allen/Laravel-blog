@@ -26,7 +26,7 @@ Route::group(['namespace'=> 'Post', 'prefix'=>'posts'], function (){
     Route::get('/', "IndexController")->name('post.index');
     Route::get('/{post}', "ShowController")->name('post.show');
 
-    Route::group(['namespace'=> 'Comment', 'prefix'=>'{post}'], function (){
+    Route::group(['namespace'=> 'Comment', 'prefix'=>'{post}/comments'], function (){
         Route::post('/', "StoreController")->name('post.comment.store');
     });
 

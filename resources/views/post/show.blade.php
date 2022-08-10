@@ -51,7 +51,7 @@
                     @auth()
                     <section class="comment-section">
                         <h2 class="section-title mb-5" data-aos="fade-up">Оставить комментарии!</h2>
-                        <form action="#" method="post">
+                        <form action="{{route('post.comment.store', $post->id)}}" method="post">
                             @csrf
                             <div class="row">
                                 <div class="form-group col-12" data-aos="fade-up">
