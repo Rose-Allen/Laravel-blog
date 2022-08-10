@@ -17,10 +17,28 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ((int) auth()->user()->role !== User::ROLE_ADMIN){
-            abort(404);
-        }
 
-        return $next($request);
+//        if (auth()->user()->role === null){
+//            abort(404);
+//        }
+//        if ((int) auth()->user()->role !== User::ROLE_ADMIN){
+//            abort(404);
+//        }elseif (auth()->user()->role === null){
+//            abort(404);
+//        }else{
+//            return $next($request);
+//        }
+        if ((int) auth()->user()->role === User::ROLE_ADMIN){
+            return $next($request);
+        }elseif (auth()->user()->role === null){
+            abort(404);
+        }else{
+            return $next($request);
+        }
+//        if ((int) auth()->user()->role !== User::ROLE_ADMIN OR (int)auth()->user()->role !== null){
+//            abort(404);
+//        }
+//        return $next($request);
+
     }
 }
