@@ -10,6 +10,7 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
+
         $likedPosts = Post::withCount('likedUser')->orderBy('liked_user_count', 'DESC')->get();
         $postRandoms = Post::get()->random(4);
         $posts = Post::paginate(6);
